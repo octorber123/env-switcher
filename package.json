@@ -4,6 +4,11 @@
   "description": "Switch .env values from the status bar by commenting and uncommenting the alternatives already in the file. Linked apps switch together.",
   "version": "0.1.0",
   "publisher": "local",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/octorber123/env-switcher.git"
+  },
   "engines": {
     "vscode": "^1.74.0"
   },

@@ -84,3 +84,7 @@ The file editing logic is in `lib/env.js` and has no VS Code dependency. Run its
 ```bash
 npm test
 ```
+
+## Licence
+
+MIT. See [LICENSE](LICENSE).
