@@ -1,0 +1,70 @@
+{
+  "name": "env-switcher",
+  "displayName": "Laravel Env Switcher",
+  "description": "Switch .env values from the status bar by commenting and uncommenting the alternatives already in the file. Linked apps switch together.",
+  "version": "0.1.0",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "scripts": {
+    "test": "node test/env.test.js"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "envSwitcher.switch",
+        "title": "Env Switcher: Switch value"
+      }
+    ],
+    "configuration": {
+      "title": "Env Switcher",
+      "properties": {
+        "envSwitcher.keys": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [
+            "DB_DATABASE"
+          ],
+          "scope": "resource",
+          "description": "The .env keys you can switch. The first one is shown in the status bar."
+        },
+        "envSwitcher.groups": {
+          "type": "array",
+          "default": [],
+          "scope": "resource",
+          "description": "Apps whose .env files switch together. Paths are relative to the workspace folder. Leave empty to get one switch per Laravel app found.",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "paths"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Label shown in the status bar."
+              },
+              "paths": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "Laravel app folders, relative to the workspace folder."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
